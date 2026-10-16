@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102a43">
+  <title>NotasU | Calculadora académica</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="NotaU, inicio">
+        <span class="brand-mark">N</span>
+        <span><strong>NotasU 2.0</strong><small>Calculadora académica</small></span>
+      </a>
+      <span class="topbar-tag"><span class="status-dot"></span> Tu espacio académico</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">HERRAMIENTAS PARA ESTUDIANTES</p>
+          <h1>Tus notas, <span>más claras.</span></h1>
+          <p class="hero-description">Calcula cortes, revisa tu definitiva y organiza tus promedios desde un solo lugar.</p>
+        </div>
+        <div class="hero-decoration" aria-hidden="true">
+          <div class="decor-card decor-card-back"></div>
+          <div class="decor-card decor-card-front"><span>4.2</span><small>Promedio de ejemplo</small><div class="decor-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+        </div>
+      </section>
+
+      <section class="section-heading">
+        <div><p class="eyebrow">MENÚ PRINCIPAL</p><h2>¿Qué necesitas calcular?</h2></div>
+        <p class="section-note">Selecciona una herramienta para comenzar.</p>
+      </section>
+
+      <section class="tools-grid" aria-label="Calculadoras">
+        <button class="tool-card tool-blue" data-open="modal-cortes">
+          <span class="tool-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4.5h14A1.5 1.5 0 0 1 20.5 6v12a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 18V6A1.5 1.5 0 0 1 5 4.5Z"/><path d="M7 8h10M7 12h2m3 0h2m3 0h.01M7 16h2m3 0h2m3 0h.01"/></svg></span>
+          <span class="tool-text"><strong>Cortes</strong><small>Calcula la nota de cada corte.</small></span><span class="tool-arrow">↗</span>
+        </button>
+        <button class="tool-card tool-purple" data-open="modal-definitiva">
+          <span class="tool-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3.5h14A1.5 1.5 0 0 1 20.5 5v14a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19V5A1.5 1.5 0 0 1 5 3.5Z"/><path d="M7 7h10M7 11h3m4 0h3M7 15h3m4 0h3"/></svg></span>
+          <span class="tool-text"><strong>Definitiva</strong><small>Estima tu nota final del semestre.</small></span><span class="tool-arrow">↗</span>
+        </button>
+        <button class="tool-card tool-orange" data-open="modal-ingles">
+          <span class="tool-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5h16A1.5 1.5 0 0 1 21.5 7v10a1.5 1.5 0 0 1-1.5 1.5H4A1.5 1.5 0 0 1 2.5 17V7A1.5 1.5 0 0 1 4 5.5Z"/><path d="M7 10h4m-2-2v4m5-2h3m-3 4h3"/></svg></span>
+          <span class="tool-text"><strong>Inglés</strong><small>Calcula cortes y definitiva.</small></span><span class="tool-arrow">↗</span>
+        </button>
+        <button class="tool-card tool-green" data-open="modal-promedios">
+          <span class="tool-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5V12m5 7.5V7m5 12.5v-5m5 5V4.5"/></svg></span>
+          <span class="tool-text"><strong>Otros promedios</strong><small>Combina notas con sus porcentajes.</small></span><span class="tool-arrow">↗</span>
+        </button>
+        <button class="tool-card tool-slate" data-open="modal-ayuda">
+          <span class="tool-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M9.7 9a2.4 2.4 0 1 1 4.2 1.6c-1.1 1-1.9 1.3-1.9 2.8m0 3h.01"/></svg></span>
+          <span class="tool-text"><strong>Ayuda</strong><small>Consulta el significado de las siglas.</small></span><span class="tool-arrow">↗</span>
+        </button>
+      </section>
+      <footer><span class="footer-mark">N</span><span>NotaU</span><span class="footer-separator">•</span><span>Hecha para ayudarte a estudiar mejor.</span></footer>
+    </main>
+  </div>
+
+  <!-- CORTES -->
+  <section class="modal" id="modal-cortes" role="dialog" aria-modal="true" aria-labelledby="title-cortes" aria-hidden="true">
+    <div class="modal-panel">
+      <div class="modal-header"><div><p class="eyebrow">CALCULADORA</p><h2 id="title-cortes">Cálculo por cortes</h2></div><button class="close-btn" aria-label="Cerrar">×</button></div>
+      <div class="tabs" role="tablist" aria-label="Tipo de corte">
+        <button class="tab active" data-tab="corte12" role="tab" aria-selected="true">Corte 1 y 2</button>
+        <button class="tab" data-tab="corte3" role="tab" aria-selected="false">Corte 3</button>
+      </div>
+      <form id="form-corte12" class="calc-form tab-panel">
+        <p class="form-intro">Ingresa las notas según la ponderación oficial de los cortes 1 y 2.</p>
+        <div class="field-grid">
+          <label>Nota parcial <span class="weight">55 %</span><input name="parcial12" type="number" min="0" max="5" step="0.01" placeholder="Ej. 3.8" required></label>
+          <label>Otras evaluaciones <span class="weight">45 %</span><input name="otras12" type="number" min="0" max="5" step="0.01" placeholder="Ej. 4.2" required></label>
+        </div>
+        <button class="primary-btn" type="submit">Calcular corte</button>
+        <div class="result-box" id="result-corte12" aria-live="polite"><span>Tu nota del corte</span><strong>—</strong></div>
+        <button class="text-btn reset-form" type="reset">Limpiar campos</button>
+      </form>
+      <form id="form-corte3" class="calc-form tab-panel" hidden>
+        <p class="form-intro">Ingresa las notas según la ponderación oficial del tercer corte.</p>
+        <div class="field-grid">
+          <label>Nota parcial <span class="weight">65 %</span><input name="parcial3" type="number" min="0" max="5" step="0.01" placeholder="Ej. 3.8" required></label>
+          <label>Otras evaluaciones <span class="weight">35 %</span><input name="otras3" type="number" min="0" max="5" step="0.01" placeholder="Ej. 4.2" required></label>
+        </div>
+        <button class="primary-btn" type="submit">Calcular corte</button>
+        <div class="result-box" id="result-corte3" aria-live="polite"><span>Tu nota del corte</span><strong>—</strong></div>
+        <button class="text-btn reset-form" type="reset">Limpiar campos</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- DEFINITIVA -->
+  <section class="modal" id="modal-definitiva" role="dialog" aria-modal="true" aria-labelledby="title-definitiva" aria-hidden="true">
+    <div class="modal-panel">
+      <div class="modal-header"><div><p class="eyebrow">CALCULADORA</p><h2 id="title-definitiva">Definitiva del semestre</h2></div><button class="close-btn" aria-label="Cerrar">×</button></div>
+      <p class="form-intro">Si no conoces la nota de cada corte, ingresa las seis evaluaciones. Los porcentajes oficiales están bloqueados.</p>
+      <form id="form-definitiva" class="calc-form">
+        <div class="field-grid">
+          <label>Otras evaluaciones · corte 1 <span class="weight">13,5 %</span><input name="oepc" type="number" min="0" max="5" step="0.01" placeholder="Nota" required></label>
+          <label>Examen parcial · corte 1 <span class="weight">16,5 %</span><input name="eppc" type="number" min="0" max="5" step="0.01" placeholder="Nota" required></label>
+          <label>Otras evaluaciones · corte 2 <span class="weight">13,5 %</span><input name="oesc" type="number" min="0" max="5" step="0.01" placeholder="Nota" required></label>
+          <label>Examen parcial · corte 2 <span class="weight">16,5 %</span><input name="epsc" type="number" min="0" max="5" step="0.01" placeholder="Nota" required></label>
+          <label>Otras evaluaciones · corte 3 <span class="weight">14 %</span><input name="oetc" type="number" min="0" max="5" step="0.01" placeholder="Nota" required></label>
+          <label>Examen parcial · corte 3 <span class="weight">26 %</span><input name="eptc" type="number" min="0" max="5" step="0.01" placeholder="Nota" required></label>
+        </div>
+        <button class="primary-btn" type="submit">Calcular definitiva</button>
+        <div class="result-box" id="result-definitiva" aria-live="polite"><span>Tu definitiva estimada</span><strong>—</strong></div>
+        <button class="text-btn reset-form" type="reset">Limpiar campos</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- INGLES -->
+  <section class="modal" id="modal-ingles" role="dialog" aria-modal="true" aria-labelledby="title-ingles" aria-hidden="true">
+    <div class="modal-panel">
+      <div class="modal-header"><div><p class="eyebrow">CALCULADORA</p><h2 id="title-ingles">Inglés</h2></div><button class="close-btn" aria-label="Cerrar">×</button></div>
+      <div class="tabs" role="tablist" aria-label="Calculadora de inglés">
+        <button class="tab active" data-tab="ingles-def" role="tab" aria-selected="true">Definitiva</button>
+        <button class="tab" data-tab="ingles-corte" role="tab" aria-selected="false">Nota del corte</button>
+      </div>
+      <form id="form-ingles-def" class="calc-form tab-panel">
+        <p class="form-intro">Ingresa la nota que obtuviste en cada corte.</p>
+        <div class="field-grid">
+          <label>Corte 1 <span class="weight">30 %</span><input name="cone" type="number" min="0" max="5" step="0.01" placeholder="Nota" required></label>
+          <label>Corte 2 <span class="weight">30 %</span><input name="ctwo" type="number" min="0" max="5" step="0.01" placeholder="Nota" required></label>
+          <label>Corte 3 <span class="weight">40 %</span><input name="cthree" type="number" min="0" max="5" step="0.01" placeholder="Nota" required></label>
+        </div>
+        <button class="primary-btn" type="submit">Calcular definitiva</button>
+        <div class="result-box" id="result-ingles-def" aria-live="polite"><span>Tu definitiva de inglés</span><strong>—</strong></div>
+        <button class="text-btn reset-form" type="reset">Limpiar campos</button>
+      </form>
+      <form id="form-ingles-corte" class="calc-form tab-panel" hidden>
+        <p class="form-intro">Ponderaciones oficiales del cálculo del corte de inglés.</p>
+        <div class="field-grid">
+          <label>Reading &amp; Listening <span class="weight">10 %</span><input name="reading" type="number" min="0" max="5" step="0.01" placeholder="Nota" required></label>
+          <label>Written Production <span class="weight">10 %</span><input name="written" type="number" min="0" max="5" step="0.01" placeholder="Nota" required></label>
+          <label>Oral Production <span class="weight">25 %</span><input name="oral" type="number" min="0" max="5" step="0.01" placeholder="Nota" required></label>
+          <label>Parcial <span class="weight">55 %</span><input name="parcial" type="number" min="0" max="5" step="0.01" placeholder="Nota" required></label>
+        </div>
+        <button class="primary-btn" type="submit">Calcular corte</button>
+        <div class="result-box" id="result-ingles-corte" aria-live="polite"><span>Tu nota del corte</span><strong>—</strong></div>
+        <button class="text-btn reset-form" type="reset">Limpiar campos</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- OTROS PROMEDIOS -->
+  <section class="modal" id="modal-promedios" role="dialog" aria-modal="true" aria-labelledby="title-promedios" aria-hidden="true">
+    <div class="modal-panel">
+      <div class="modal-header"><div><p class="eyebrow">CALCULADORA</p><h2 id="title-promedios">Otros promedios</h2></div><button class="close-btn" aria-label="Cerrar">×</button></div>
+      <p class="form-intro">Agrega hasta cuatro notas y el porcentaje que vale cada una. Los porcentajes deben sumar 100 %.</p>
+      <form id="form-promedios" class="calc-form">
+        <div class="field-grid">
+          <label>Nota 1<input name="nota1" type="number" min="0" max="5" step="0.01" placeholder="Nota" required></label>
+          <label>Porcentaje 1<input name="prom1" type="number" min="0" max="100" step="0.1" placeholder="%" required></label>
+          <label>Nota 2<input name="nota2" type="number" min="0" max="5" step="0.01" placeholder="Nota" required></label>
+          <label>Porcentaje 2<input name="prom2" type="number" min="0" max="100" step="0.1" placeholder="%" required></label>
+          <label>Nota 3<input name="nota3" type="number" min="0" max="5" step="0.01" placeholder="Nota" required></label>
+          <label>Porcentaje 3<input name="prom3" type="number" min="0" max="100" step="0.1" placeholder="%" required></label>
+          <label>Nota 4<input name="nota4" type="number" min="0" max="5" step="0.01" placeholder="Nota" required></label>
+          <label>Porcentaje 4<input name="prom4" type="number" min="0" max="100" step="0.1" placeholder="%" required></label>
+        </div>
+        <p class="validation-note" id="weight-sum">Porcentajes ingresados: 0 %</p>
+        <button class="primary-btn" type="submit">Calcular promedio</button>
+        <div class="result-box" id="result-promedios" aria-live="polite"><span>Tu promedio</span><strong>—</strong></div>
+        <button class="text-btn reset-form" type="reset">Limpiar campos</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- AYUDA -->
+  <section class="modal" id="modal-ayuda" role="dialog" aria-modal="true" aria-labelledby="title-ayuda" aria-hidden="true">
+    <div class="modal-panel">
+      <div class="modal-header"><div><p class="eyebrow">INFORMACIÓN</p></div><button class="close-btn" aria-label="Cerrar">×</button></div>
+      <div class="help-list">
+       <p>En inglés con las 4 opciones se calcula la nota del corte 1 y 2 , para el corte 3, tienes 2 opciones, poner la misma nota del parcial en la casilla "Written Production" o hacerla desde otros promedios con 65%,25% y 10%.</p>
+      </div>
+
+      <p class="help-footnote">NotaU calcula con los porcentajes incluidos en esta herramienta. Verifica siempre que correspondan a tu asignatura.
+<a href="https://unicalculator00.blogspot.com/?m=1">Versión 1.0</a>
+</p>
+    </div>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
